@@ -1,13 +1,18 @@
 #!/bin/bash
 
 function ng_new {
-  echo npm i -g @angular/cli@$1
-  echo ng new angular-lts --directory $1 -S -g --skip-install --routing false --style scss
+  echo Recreate $2
+  npm i -g @angular/cli@$1
+  rm -rf $2
+  ng new angular-lts --directory $2 -S -g --skip-install --routing false --style scss
 }
 
-for v in `seq 6 11`;
+let latest=14
+let lts=latest-1
+
+for v in `seq 6 $lts`;
 do
-  ng_new v$v-lts
+  ng_new v$v-lts v$v-lts
 done
 
-ng_new latest
+ng_new latest v$latest-lts
