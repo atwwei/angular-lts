@@ -28,6 +28,10 @@ const { execSync } = require('child_process');
       run(`ng new angular-lts --directory ${tag} -S -g --skip-install --routing false --style scss`);
     }
   }
+  // Ionic latest
+  // rm -rf ionic
+  // npm i -g @ionic/cli@latest
+  // ionic start ionic blank --type=angular --capacitor --no-deps --no-git
 })();
 
 function log(message, color) {
