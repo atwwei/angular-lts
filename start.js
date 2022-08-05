@@ -42,6 +42,7 @@ function log(message, color) {
 }
 
 function run(cmd) {
-  log(cmd);
-  execSync(cmd);
+  console.group(cmd);
+  console.log(execSync(cmd).toString());
+  console.groupEnd();
 }
